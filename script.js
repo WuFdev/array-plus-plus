@@ -1,4 +1,4 @@
-// A++ 2.0.0 release
+// A++ 3.0.0 release
 
 if (app[0].startsWith("halt ") && app[0].endsWith(";"))
 {
@@ -8,6 +8,15 @@ if (app[0].startsWith("halt ") && app[0].endsWith(";"))
   throw new Error();
 }
 
+if (app[0].startsWith("exec ") && app[0].endsWith(";"))
+{
+  
+  app[0] = app[0].substring(5);
+
+  var F=new Function (app[0].substring(0, app[0].length - 1));
+
+  return(F());
+}
 
 if (app[0].startsWith("print ") && app[0].endsWith(";"))
 {
